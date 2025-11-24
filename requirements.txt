@@ -1,0 +1,10 @@
+# This file is kept for reference but dependencies are managed with uv
+# Add packages using: uv add <package>
+# 
+# Example packages you might want to add:
+# - numpy
+# - torch
+# - transformers
+# - gymnasium
+# - mlflow
+# etc.

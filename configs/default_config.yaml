@@ -1,0 +1,87 @@
+# Default configuration for ZGX Onboard experiments
+
+# Hardware settings
+hardware:
+  device: "cuda"  # cuda, cpu, mps
+  cuda_device: 0
+  num_workers: 4
+  pin_memory: true
+
+# Model settings
+model:
+  name: "default"
+  cache_dir: "./models/pretrained"
+  checkpoint_dir: "./models/checkpoints"
+  save_best: true
+  save_last: true
+
+# Training settings
+training:
+  batch_size: 32
+  num_epochs: 10
+  learning_rate: 1e-4
+  weight_decay: 1e-5
+  gradient_accumulation_steps: 1
+  max_grad_norm: 1.0
+  seed: 42
+
+# Data settings
+data:
+  data_dir: "./data"
+  raw_data_dir: "./data/raw"
+  processed_data_dir: "./data/processed"
+  train_split: 0.8
+  val_split: 0.1
+  test_split: 0.1
+
+# Inference settings
+inference:
+  batch_size: 1
+  max_length: 512
+  temperature: 1.0
+  top_p: 0.9
+  top_k: 50
+
+# Agent settings
+agents:
+  max_steps: 1000
+  memory_size: 10000
+  exploration_rate: 0.1
+  learning_rate: 1e-3
+
+# Reinforcement Learning settings
+reinforcement_learning:
+  env_name: "CartPole-v1"
+  algorithm: "PPO"  # PPO, DQN, A2C, etc.
+  total_timesteps: 100000
+  learning_rate: 3e-4
+  n_steps: 2048
+  batch_size: 64
+  n_epochs: 10
+  gamma: 0.99
+  gae_lambda: 0.95
+
+# Model Tuning settings
+tuning:
+  backend: "optuna"  # optuna, ray
+  n_trials: 100
+  timeout: 3600  # seconds
+  direction: "maximize"  # maximize, minimize
+  metric: "accuracy"
+  study_name: "zgx_tuning_study"
+
+# Experiment Tracking
+tracking:
+  use_mlflow: true
+  mlflow_uri: "file:./mlruns"
+  experiment_name: "zgx-experiments"
+  use_tensorboard: false
+  tensorboard_log_dir: "./tensorboard_logs"
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  log_dir: "./logs"
+  log_file: "zgx_onboard.log"
+  console_output: true
+

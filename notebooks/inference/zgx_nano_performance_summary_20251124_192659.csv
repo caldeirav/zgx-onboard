@@ -1,0 +1,7 @@
+scenario,latency_seconds_mean,latency_seconds_std,latency_seconds_min,latency_seconds_max,tokens_per_second_mean,tokens_per_second_std,tokens_per_second_min,tokens_per_second_max,output_tokens_mean,total_tokens_mean
+Batch Requests (Sequential),21.9,11.79,11.81,37.11,28.69,6.4,19.48,34.45,666.2,669.8
+Chat API,29.23,5.17,26.36,38.42,30.75,1.93,28.64,33.83,900.0,913.0
+Long Prompt (Generate),89.82,12.45,73.81,107.22,25.22,1.34,24.14,26.78,2267.0,2320.0
+Medium Prompt (Generate),25.6,4.35,21.34,30.68,33.41,2.85,29.27,36.88,846.0,859.0
+Multi-turn Chat,14.23,4.51,10.61,21.6,31.79,5.47,22.99,37.08,455.6,473.6
+Short Prompt (Generate),17.81,4.75,11.84,24.75,31.69,2.79,27.73,34.61,563.6,567.6
