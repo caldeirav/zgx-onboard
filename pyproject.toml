@@ -27,13 +27,22 @@ classifiers = [
 # Dependencies will be managed with uv
 # Add packages using: uv add <package>
 dependencies = [
+    "datasets>=4.0.0",
+    "dotenv>=0.9.9",
+    "google-generativeai>=0.8.5",
     "ipykernel>=6.31.0",
+    "langchain>=0.3.27",
+    "langchain-ollama>=0.3.10",
+    "langgraph>=0.6.11",
+    "litellm>=1.80.7",
     "matplotlib>=3.9.4",
+    "mlflow>=3.1.4",
     "nvidia-ml-py3>=7.352.0",
     "ollama>=0.6.1",
     "pandas>=2.3.3",
     "psutil>=7.1.3",
     "pynvml>=13.0.1",
+    "python-dotenv>=1.2.1",
     "scikit-learn>=1.6.1",
     "seaborn>=0.13.2",
 ]
