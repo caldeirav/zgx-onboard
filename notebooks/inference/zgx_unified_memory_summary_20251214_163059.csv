@@ -1,0 +1,2 @@
+model,timestamp,total_runs,avg_ttft_ms,std_ttft_ms,avg_tps,std_tps,peak_gpu_memory_gb,avg_gpu_memory_gb
+meta-llama/Llama-3.3-70B-Instruct,20251214_163059,9,2.1233028835720487,0.6360170285866121,1.9285653812542256,0.15119912993363485,67.69951677322388,67.69950914382935

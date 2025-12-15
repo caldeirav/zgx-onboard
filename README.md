@@ -94,10 +94,49 @@ source .venv/bin/activate
 python -c "import zgx_onboard; print('Installation successful!')"
 ```
 
+## CUDA Dev Container
+
+For demos requiring CUDA (e.g., Unified Memory on Grace-Blackwell architecture), use the provided Docker container:
+
+### Quick Start with Docker
+
+```bash
+# 1. Create environment file with HuggingFace token
+echo "HF_TOKEN=hf_your_token_here" > .env
+
+# 2. Build and run the container
+cd docker
+./build-and-run.sh
+
+# 3. Attach Cursor to the container
+#    - Press F1 → "Dev Containers: Attach to Running Container..."
+#    - Select "zgx_cuda"
+```
+
+### Container Features
+
+- **CUDA 12.6** development environment (Ubuntu 24.04)
+- **Nsight Systems 2024.5** for profiling
+- Pre-installed ML stack (PyTorch, Transformers, Accelerate, BitsAndBytes)
+- **nvitop** for real-time GPU monitoring
+
+See [docker/README.md](docker/README.md) for detailed container documentation.
+
+## Available Demos
+
+| Demo | Location | Description |
+|------|----------|-------------|
+| **Unified Memory Benchmark** | `notebooks/inference/zgx_nano_unified_memory.ipynb` | CUDA 13 unified memory demo with TTFT/TPS metrics |
+| **Ollama Performance** | `notebooks/inference/zgx_nano_ollama_performance.ipynb` | Local LLM inference benchmarking |
+
 ## Project Structure
 
 ```
 zgx-onboard/
+├── docker/                   # CUDA Dev Container
+│   ├── Dockerfile            # Container image definition
+│   ├── build-and-run.sh      # Container management script
+│   └── README.md             # Container documentation
 ├── src/
 │   └── zgx_onboard/          # Main package
 │       ├── inference/         # Model inference modules

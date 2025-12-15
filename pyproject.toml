@@ -30,6 +30,7 @@ dependencies = [
     "datasets>=4.0.0",
     "dotenv>=0.9.9",
     "google-generativeai>=0.8.5",
+    "huggingface-hub>=1.1.6",
     "ipykernel>=6.31.0",
     "langchain>=0.3.27",
     "langchain-ollama>=0.3.10",
@@ -45,6 +46,7 @@ dependencies = [
     "python-dotenv>=1.2.1",
     "scikit-learn>=1.6.1",
     "seaborn>=0.13.2",
+    "torch>=2.8.0",
 ]
 
 [project.optional-dependencies]

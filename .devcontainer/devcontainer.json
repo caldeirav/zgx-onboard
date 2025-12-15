@@ -1,0 +1,31 @@
+{
+    "name": "ZGX CUDA Dev Container",
+    "dockerFile": "../docker/Dockerfile",
+    "runArgs": [
+        "--gpus", "all",
+        "--shm-size=100g"
+    ],
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "ms-toolsai.jupyter-keymap",
+                "ms-toolsai.jupyter-renderers"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/bin/python3",
+                "jupyter.notebookFileRoot": "/workspace"
+            }
+        }
+    },
+    
+    "postCreateCommand": "echo '✅ Dev container ready!'",
+    
+    "remoteUser": "root"
+}
+
