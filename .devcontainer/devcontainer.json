@@ -8,6 +8,12 @@
     "workspaceFolder": "/workspace",
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
     
+    // Persist Cursor/VS Code extensions across container rebuilds
+    "mounts": [
+        "source=zgx-cursor-extensions,target=/root/.cursor-server,type=volume",
+        "source=zgx-vscode-extensions,target=/root/.vscode-server,type=volume"
+    ],
+    
     "customizations": {
         "vscode": {
             "extensions": [
@@ -24,7 +30,7 @@
         }
     },
     
-    "postCreateCommand": "echo '✅ Dev container ready!'",
+    "postCreateCommand": "python3 -m ipykernel install --user --name python3 --display-name 'Python 3' && echo '✅ Dev container ready!'",
     
     "remoteUser": "root"
 }

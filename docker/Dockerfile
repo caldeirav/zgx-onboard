@@ -1,17 +1,18 @@
 # =============================================================================
-# ZGX Nano CUDA Dev Container
+# ZGX Nano CUDA 13 Dev Container for Blackwell (RTX 50 series)
 # =============================================================================
-# Target: CUDA Development environment for Grace-Blackwell / Arm64
+# Target: CUDA 13 Development environment for Grace-Blackwell / Arm64
 # Purpose: General-purpose container for CUDA demos and experiments
 #
 # Build:  docker build -t zgx-cuda docker/
 # Run:    docker run -d --gpus all --shm-size=100g \
 #             -v $(pwd):/workspace --name zgx_cuda zgx-cuda
 #
-# Note: Uses CUDA 12.8 for Blackwell (GB10, sm_120/sm_121) GPU support
+# Note: Uses NVIDIA PyTorch image with CUDA 13.0 for full Blackwell support
+# See: https://build.nvidia.com/spark/unsloth/instructions
 # =============================================================================
 
-FROM nvidia/cuda:12.8.0-devel-ubuntu24.04
+FROM nvcr.io/nvidia/pytorch:25.11-py3
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -20,8 +21,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 # - git, procps: Required for Cursor/VSCode to attach correctly
 # -----------------------------------------------------------------------------
 RUN apt-get update && apt-get install -y \
-    python3-pip \
-    python3-venv \
     git \
     wget \
     curl \
@@ -32,19 +31,46 @@ RUN apt-get update && apt-get install -y \
 
 # -----------------------------------------------------------------------------
 # Install Python Dependencies
-# - PyTorch 2.7+ with CUDA 12.8 for Blackwell (GB10) GPU support
-# - Transformers ecosystem for LLM inference
-# - ipykernel: Required for Cursor notebook support
-# - nvitop: Real-time GPU monitoring
-# Note: --break-system-packages is safe in containers (isolated environment)
+# - PyTorch is already included in the base image with CUDA 13.0
+# - Install additional ML/AI packages
+# Note: Using --no-deps for unsloth to avoid dependency conflicts with base image
+# See: https://build.nvidia.com/spark/unsloth/instructions
 # -----------------------------------------------------------------------------
-RUN pip3 install --no-cache-dir --break-system-packages \
-    torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
-
-RUN pip3 install --no-cache-dir --break-system-packages \
+RUN pip install --no-cache-dir \
     transformers \
+    peft \
+    hf_transfer \
+    "datasets==4.3.0" \
+    "trl==0.26.1"
+
+# Install unsloth without deps (as per NVIDIA instructions for Blackwell)
+RUN pip install --no-deps \
+    unsloth \
+    unsloth_zoo \
+    bitsandbytes
+
+# -----------------------------------------------------------------------------
+# Install Additional Dependencies for AML Investigation Agent
+# - mlflow: Experiment tracking and agent tracing
+# - networkx: Financial graph database simulation
+# - kaggle: Dataset download from Kaggle
+# - polars: Fast DataFrame library for large dataset processing
+# - google-genai: Gemini API for LLM-as-judge evaluation
+# - langgraph: Agent framework with state management
+# -----------------------------------------------------------------------------
+RUN pip install --no-cache-dir \
+    mlflow \
+    networkx \
+    kaggle \
+    polars \
+    google-genai \
+    safetensors \
+    tokenizers \
+    scikit-learn \
+    langgraph \
+    langchain-core \
+    langchain-ollama \
     accelerate \
-    bitsandbytes \
     nvitop \
     huggingface_hub \
     matplotlib \
@@ -65,4 +91,3 @@ WORKDIR /workspace
 # Default Command: Keep container alive for Cursor to attach
 # -----------------------------------------------------------------------------
 CMD ["sleep", "infinity"]
-

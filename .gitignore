@@ -72,6 +72,17 @@ lightning_logs/
 # Weights & Biases
 wandb/
 
+# Unsloth
+unsloth_compiled_cache/
+sft_adapter/
+sft_output/
+grpo_adapter/
+grpo_output/
+dpo_adapter/
+dpo_output/
+lora_model/
+outputs_*/
+
 # PyTorch
 *.pth
 *.pt

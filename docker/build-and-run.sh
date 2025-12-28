@@ -19,6 +19,10 @@ CONTAINER_NAME="zgx_cuda"
 SHM_SIZE="100g"  # Required for unified memory operations with large models
 WORKSPACE_PATH="${WORKSPACE_PATH:-$(pwd)/..}"  # Default to project root
 
+# Named volumes for persisting Cursor/VS Code extensions
+CURSOR_EXTENSIONS_VOLUME="zgx-cursor-extensions"
+VSCODE_EXTENSIONS_VOLUME="zgx-vscode-extensions"
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -76,12 +80,15 @@ run_container() {
     echo "  Image: $IMAGE_NAME"
     echo "  Shared Memory: $SHM_SIZE"
     echo "  Workspace: $WORKSPACE_PATH"
+    echo "  Extension volumes: $CURSOR_EXTENSIONS_VOLUME, $VSCODE_EXTENSIONS_VOLUME"
     echo ""
     
     docker run -d \
         --gpus all \
         --shm-size="$SHM_SIZE" \
         -v "$WORKSPACE_PATH":/workspace \
+        -v "$CURSOR_EXTENSIONS_VOLUME":/root/.cursor-server \
+        -v "$VSCODE_EXTENSIONS_VOLUME":/root/.vscode-server \
         --name "$CONTAINER_NAME" \
         "$IMAGE_NAME"
     
@@ -101,8 +108,27 @@ stop_container() {
     if docker ps -a --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
         docker rm -f "$CONTAINER_NAME"
         print_success "Container stopped and removed: $CONTAINER_NAME"
+        echo ""
+        echo "Note: Extension volumes are preserved. Use --clean to remove them."
     else
         print_warning "Container '$CONTAINER_NAME' not found."
+    fi
+}
+
+clean_volumes() {
+    print_header "Cleaning Extension Volumes"
+    
+    echo "This will remove all cached Cursor/VS Code extensions."
+    read -p "Continue? (y/N): " confirm
+    if [[ "$confirm" =~ ^[Yy]$ ]]; then
+        docker volume rm -f "$CURSOR_EXTENSIONS_VOLUME" 2>/dev/null && \
+            print_success "Removed: $CURSOR_EXTENSIONS_VOLUME" || \
+            print_warning "Volume not found: $CURSOR_EXTENSIONS_VOLUME"
+        docker volume rm -f "$VSCODE_EXTENSIONS_VOLUME" 2>/dev/null && \
+            print_success "Removed: $VSCODE_EXTENSIONS_VOLUME" || \
+            print_warning "Volume not found: $VSCODE_EXTENSIONS_VOLUME"
+    else
+        echo "Cancelled."
     fi
 }
 
@@ -128,7 +154,8 @@ show_help() {
     echo "Options:"
     echo "  --build    Build the Docker image only"
     echo "  --run      Run the container only (assumes image exists)"
-    echo "  --stop     Stop and remove the container"
+    echo "  --stop     Stop and remove the container (preserves extensions)"
+    echo "  --clean    Remove cached Cursor/VS Code extension volumes"
     echo "  --status   Show container status"
     echo "  --help     Show this help message"
     echo ""
@@ -136,6 +163,10 @@ show_help() {
     echo ""
     echo "Environment variables:"
     echo "  WORKSPACE_PATH  Path to mount as /workspace (default: project root)"
+    echo ""
+    echo "Extension persistence:"
+    echo "  Extensions are stored in Docker volumes and persist across container rebuilds."
+    echo "  Volumes: $CURSOR_EXTENSIONS_VOLUME, $VSCODE_EXTENSIONS_VOLUME"
 }
 
 # Main
@@ -148,6 +179,9 @@ case "${1:-}" in
         ;;
     --stop)
         stop_container
+        ;;
+    --clean)
+        clean_volumes
         ;;
     --status)
         show_status
