@@ -50,6 +50,7 @@ venv.bak/
 
 # ML/AI specific
 # Models and checkpoints
+/models/
 models/checkpoints/*
 models/pretrained/*
 !models/checkpoints/.gitkeep
@@ -82,6 +83,9 @@ dpo_adapter/
 dpo_output/
 lora_model/
 outputs_*/
+
+# Experiment outputs
+/outputs/
 
 # PyTorch
 *.pth

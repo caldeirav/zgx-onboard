@@ -64,12 +64,15 @@ RUN pip install --no-cache-dir \
     kaggle \
     polars \
     google-genai \
+    google-generativeai \
     safetensors \
     tokenizers \
     scikit-learn \
     langgraph \
     langchain-core \
     langchain-ollama \
+    langchain-experimental \
+    litellm \
     accelerate \
     nvitop \
     huggingface_hub \

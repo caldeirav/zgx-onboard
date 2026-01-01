@@ -30,7 +30,7 @@
         }
     },
     
-    "postCreateCommand": "python3 -m ipykernel install --user --name python3 --display-name 'Python 3' && echo '✅ Dev container ready!'",
+    "postCreateCommand": "pip install langchain langchain-core langgraph && python3 -m ipykernel install --user --name python3 --display-name 'Python 3' && echo '✅ Dev container ready!'",
     
     "remoteUser": "root"
 }
