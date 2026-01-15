@@ -1,0 +1,859 @@
+[
+  {
+    "test_num": 1,
+    "query": "Can you give me a summary of what Amazon does?",
+    "category": "direct",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_company_profile"
+    ],
+    "predicted_tools": [
+      "get_company_profile"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"AMZN\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"AMZN\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the company in the user's query as Amazon and used its ticker 'AMZN' as the parameter for the 'get_company_profile' tool, which is the exact expected behavior.",
+    "latency": 0.8044302463531494
+  },
+  {
+    "test_num": 2,
+    "query": "TSLA stock price now",
+    "category": "direct",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_current_price"
+    ],
+    "predicted_tools": [
+      "get_current_price"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_current_price\", \"arguments\": {\"ticker\": \"TSLA\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_current_price\", \"arguments\": {\"ticker\": \"TSLA\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the single tool `get_current_price` and extracted the correct ticker 'TSLA' from the user's query. The tool call exactly matches the expected output.",
+    "latency": 0.8299877643585205
+  },
+  {
+    "test_num": 3,
+    "query": "What is the P/E ratio for Procter & Gamble?",
+    "category": "direct",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_company_profile"
+    ],
+    "predicted_tools": [
+      "get_company_profile"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"PG\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"PG\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model's output perfectly matches the expected tool call. It correctly identified the necessary tool (`get_company_profile`) and accurately extracted the company's ticker symbol ('PG') from the user's query 'Procter & Gamble'.",
+    "latency": 0.782282829284668
+  },
+  {
+    "test_num": 4,
+    "query": "Pull up the dividend payout record for Microsoft.",
+    "category": "direct",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_dividend_history"
+    ],
+    "predicted_tools": [
+      "get_dividend_history"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_dividend_history\", \"arguments\": {\"ticker\": \"MSFT\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_dividend_history\", \"arguments\": {\"ticker\": \"MSFT\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the user's intent to retrieve dividend information and selected the appropriate tool, `get_dividend_history`. It also correctly parsed 'Microsoft' into the ticker symbol 'MSFT' for the required parameter.",
+    "latency": 0.8262031078338623
+  },
+  {
+    "test_num": 5,
+    "query": "Do more analysts rate JPM a buy or a hold?",
+    "category": "direct",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_analyst_recommendations"
+    ],
+    "predicted_tools": [
+      "get_analyst_recommendations"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"JPM\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"JPM\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the single tool `get_analyst_recommendations` and extracted the correct ticker 'JPM' from the user's query to use as the parameter. The model's output exactly matches the expected tool call.",
+    "latency": 0.9049694538116455
+  },
+  {
+    "test_num": 6,
+    "query": "Are there any recent headlines about Apple?",
+    "category": "direct",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_news"
+    ],
+    "predicted_tools": [
+      "get_news"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the user's intent to get news and correctly identified the company 'Apple' and its corresponding ticker 'AAPL' to use as the parameter for the `get_news` tool.",
+    "latency": 0.7603819370269775
+  },
+  {
+    "test_num": 7,
+    "query": "Is Mastercard a buy or sell according to analysts?",
+    "category": "direct",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_analyst_recommendations"
+    ],
+    "predicted_tools": [
+      "get_analyst_recommendations"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"MA\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"MA\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the user's intent to retrieve analyst recommendations for a specific company. It selected the appropriate tool (`get_analyst_recommendations`) and correctly identified 'Mastercard' and provided its corresponding ticker 'MA' as the parameter.",
+    "latency": 0.847592830657959
+  },
+  {
+    "test_num": 8,
+    "query": "Give me the company profile for Johnson & Johnson, including its P/E ratio.",
+    "category": "direct",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_company_profile"
+    ],
+    "predicted_tools": [
+      "get_company_profile"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"JNJ\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"JNJ\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the single tool `get_company_profile` and the correct ticker 'JNJ' to fulfill the user's direct request for a company profile and its P/E ratio.",
+    "latency": 0.8247926235198975
+  },
+  {
+    "test_num": 9,
+    "query": "What's the consensus price target for Tesla?",
+    "category": "direct",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_analyst_recommendations"
+    ],
+    "predicted_tools": [
+      "get_analyst_recommendations"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"TSLA\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"TSLA\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the user's intent to find analyst data for a specific stock. It selected the appropriate tool, `get_analyst_recommendations`, and correctly extracted the ticker 'TSLA' from the entity 'Tesla'. The model's tool call is an exact match to the expected call.",
+    "latency": 0.9122066497802734
+  },
+  {
+    "test_num": 10,
+    "query": "Tell me about Mastercard's business and its sector.",
+    "category": "direct",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_company_profile"
+    ],
+    "predicted_tools": [
+      "get_company_profile"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"MA\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"MA\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the single tool `get_company_profile` needed to answer the user's direct query. It also correctly identified the ticker for Mastercard ('MA') and used it as the parameter.",
+    "latency": 0.7692446708679199
+  },
+  {
+    "test_num": 11,
+    "query": "Get the latest stock price for Visa.",
+    "category": "direct",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 0,
+    "expected_tools": [
+      "get_current_price"
+    ],
+    "predicted_tools": [],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_current_price\", \"arguments\": {\"ticker\": \"V\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_current_price\", \"arguments\": {\"ticker\": \"V\"})\n</tool_call>",
+    "tool_selection_accuracy": 0.0,
+    "sequence_accuracy": 0.0,
+    "parameter_accuracy": 0.0,
+    "overall_pass": false,
+    "judge_score": 0.4,
+    "judge_category": "partial",
+    "judge_rationale": "The model correctly identified the right tool ('get_current_price') and the correct ticker for Visa ('V'). However, the output is not a valid JSON object due to a syntax error in the 'arguments' field (a closing parenthesis ')' instead of a curly brace '}'). This constitutes a significant parameter error as it would prevent the tool call from being parsed and executed.",
+    "latency": 0.766765832901001
+  },
+  {
+    "test_num": 12,
+    "query": "Who are the top institutional holders of Microsoft?",
+    "category": "direct",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_institutional_holders"
+    ],
+    "predicted_tools": [
+      "get_institutional_holders"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_institutional_holders\", \"arguments\": {\"ticker\": \"MSFT\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_institutional_holders\", \"arguments\": {\"ticker\": \"MSFT\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the company 'Microsoft' and its ticker 'MSFT', and called the appropriate tool 'get_institutional_holders' with the correct parameters.",
+    "latency": 0.877166748046875
+  },
+  {
+    "test_num": 13,
+    "query": "Which is a better value, MSFT or GOOGL based on P/E ratio, and how has the cheaper one performed over the last 6 months?",
+    "category": "multi_step",
+    "num_expected_tools": 2,
+    "num_predicted_tools": 2,
+    "expected_tools": [
+      "compare_stocks",
+      "get_historical_data"
+    ],
+    "predicted_tools": [
+      "compare_stocks",
+      "get_historical_data"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"compare_stocks\", \"arguments\": {\"tickers\": [\"MSFT\", \"GOOGL\"], \"metric\": \"pe_ratio\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"GOOGL\", \"period\": \"6mo\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"compare_stocks\", \"arguments\": {\"tickers\": [\"MSFT\", \"GOOGL\"], \"metric\": \"pe_ratio\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"<result of compare_stocks>\", \"period\": \"6mo\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 0.75,
+    "overall_pass": false,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the two necessary tool calls in the correct logical order. It accurately determined the parameters for the first call and, crucially, understood that the 'ticker' for the second call is dependent on the result of the first, representing this dependency correctly.",
+    "latency": 2.1275951862335205
+  },
+  {
+    "test_num": 14,
+    "query": "Which company is more valuable by market cap, Meta or Google? For the more valuable one, what do analysts recommend?",
+    "category": "multi_step",
+    "num_expected_tools": 2,
+    "num_predicted_tools": 4,
+    "expected_tools": [
+      "compare_stocks",
+      "get_analyst_recommendations"
+    ],
+    "predicted_tools": [
+      "get_company_profile",
+      "get_company_profile",
+      "get_analyst_recommendations",
+      "get_analyst_recommendations"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"compare_stocks\", \"arguments\": {\"tickers\": [\"META\", \"GOOGL\"], \"metric\": \"market_cap\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"GOOGL\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"META\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"GOOGL\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"META\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"GOOGL\"}}\n</tool_call>",
+    "tool_selection_accuracy": 0.5,
+    "sequence_accuracy": 0.0,
+    "parameter_accuracy": 0.0,
+    "overall_pass": false,
+    "judge_score": 0.4,
+    "judge_category": "partial",
+    "judge_rationale": "The model correctly identifies the two companies and the two pieces of information needed (market cap and analyst recommendations). However, it fails on two fronts. First, it uses two less efficient `get_company_profile` calls to find the market cap instead of the more direct `compare_stocks` tool. Second, and more importantly, it fails to follow the conditional logic of the query ('For the more valuable one'). Instead of determining the more valuable company first and then calling for its recommendations, it calls the `get_analyst_recommendations` tool for both companies, which is inefficient and ignores the multi-step nature of the request.",
+    "latency": 2.8787500858306885
+  },
+  {
+    "test_num": 15,
+    "query": "Give me a summary of what Amazon does and show me the latest news about the company.",
+    "category": "multi_step",
+    "num_expected_tools": 2,
+    "num_predicted_tools": 2,
+    "expected_tools": [
+      "get_company_profile",
+      "get_news"
+    ],
+    "predicted_tools": [
+      "get_company_profile",
+      "get_news"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"AMZN\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"ticker\": \"AMZN\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"AMZN\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"ticker\": \"AMZN\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the two sub-queries and called the appropriate tools, `get_company_profile` and `get_news`, in a logical order with the correct ticker 'AMZN' for both.",
+    "latency": 1.392122745513916
+  },
+  {
+    "test_num": 16,
+    "query": "Show me the 5-year price chart for Visa and also get the current analyst price targets.",
+    "category": "multi_step",
+    "num_expected_tools": 2,
+    "num_predicted_tools": 2,
+    "expected_tools": [
+      "get_historical_data",
+      "get_analyst_recommendations"
+    ],
+    "predicted_tools": [
+      "get_historical_data",
+      "get_analyst_recommendations"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"V\", \"period\": \"5y\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"V\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"V\", \"period\": \"5y\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"V\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the two distinct requests in the user's query. It selected the appropriate tool for each request (`get_historical_data` and `get_analyst_recommendations`), and correctly identified the ticker 'V' for Visa as well as the '5y' period.",
+    "latency": 1.685760498046875
+  },
+  {
+    "test_num": 17,
+    "query": "What was Walmart's EPS for the last reported quarter and what is its current stock price?",
+    "category": "multi_step",
+    "num_expected_tools": 2,
+    "num_predicted_tools": 2,
+    "expected_tools": [
+      "get_earnings_history",
+      "get_current_price"
+    ],
+    "predicted_tools": [
+      "get_earnings_history",
+      "get_current_price"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_earnings_history\", \"arguments\": {\"ticker\": \"WMT\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_current_price\", \"arguments\": {\"ticker\": \"WMT\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_earnings_history\", \"arguments\": {\"ticker\": \"WMT\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_current_price\", \"arguments\": {\"ticker\": \"WMT\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the two distinct questions in the user's query. It selected the appropriate tools, `get_earnings_history` and `get_current_price`, and correctly identified the ticker 'WMT' for Walmart for both calls. The tool calls and parameters are an exact match to the expected output.",
+    "latency": 1.4824738502502441
+  },
+  {
+    "test_num": 18,
+    "query": "Show me the analyst price targets for JPMorgan Chase and also their recent earnings surprise history.",
+    "category": "multi_step",
+    "num_expected_tools": 2,
+    "num_predicted_tools": 2,
+    "expected_tools": [
+      "get_analyst_recommendations",
+      "get_earnings_history"
+    ],
+    "predicted_tools": [
+      "get_analyst_recommendations",
+      "get_earnings_history"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"JPM\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_earnings_history\", \"arguments\": {\"ticker\": \"JPM\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"JPM\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_earnings_history\", \"arguments\": {\"ticker\": \"JPM\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the two distinct requests in the user's query. It selected the appropriate tool for each request (`get_analyst_recommendations` for price targets and `get_earnings_history` for earnings surprise) and correctly identified the ticker 'JPM' for both calls.",
+    "latency": 1.5836150646209717
+  },
+  {
+    "test_num": 19,
+    "query": "How much in dividends has Johnson & Johnson paid out over the last year? Also check the latest insider trading activity.",
+    "category": "multi_step",
+    "num_expected_tools": 2,
+    "num_predicted_tools": 2,
+    "expected_tools": [
+      "get_dividend_history",
+      "get_insider_trades"
+    ],
+    "predicted_tools": [
+      "get_dividend_history",
+      "get_insider_trades"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_dividend_history\", \"arguments\": {\"ticker\": \"JNJ\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_insider_trades\", \"arguments\": {\"ticker\": \"JNJ\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_dividend_history\", \"arguments\": {\"ticker\": \"JNJ\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_insider_trades\", \"arguments\": {\"ticker\": \"JNJ\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the two distinct questions in the user query and called the appropriate tools for each (`get_dividend_history` and `get_insider_trades`). The ticker 'JNJ' for Johnson & Johnson was correctly identified and used for both calls. The tool calls and their parameters are a perfect match to the expected output.",
+    "latency": 1.5149726867675781
+  },
+  {
+    "test_num": 20,
+    "query": "What was Disney's biggest earnings surprise in the past two years, and how has the stock performed since then?",
+    "category": "multi_step",
+    "num_expected_tools": 2,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_earnings_history",
+      "get_historical_data"
+    ],
+    "predicted_tools": [
+      "get_earnings_history"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_earnings_history\", \"arguments\": {\"ticker\": \"DIS\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"DIS\", \"period\": \"2y\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_earnings_history\", \"arguments\": {\"ticker\": \"DIS\"}}\n</tool_call>",
+    "tool_selection_accuracy": 0.5,
+    "sequence_accuracy": 0.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": false,
+    "judge_score": 0.4,
+    "judge_category": "partial",
+    "judge_rationale": "The model correctly called the `get_earnings_history` tool to address the first part of the query. However, it failed to make the second required tool call, `get_historical_data`, which is necessary to answer the second part of the query about stock performance.",
+    "latency": 0.8336873054504395
+  },
+  {
+    "test_num": 21,
+    "query": "How has Google's stock performed over the last year, and who are its main institutional owners?",
+    "category": "multi_step",
+    "num_expected_tools": 2,
+    "num_predicted_tools": 2,
+    "expected_tools": [
+      "get_historical_data",
+      "get_institutional_holders"
+    ],
+    "predicted_tools": [
+      "get_historical_data",
+      "get_institutional_holders"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"GOOGL\", \"period\": \"1y\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_institutional_holders\", \"arguments\": {\"ticker\": \"GOOGL\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"GOOGL\", \"period\": \"1y\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_institutional_holders\", \"arguments\": {\"ticker\": \"GOOGL\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the two distinct questions in the user's query and made two separate tool calls in a logical order. Both the `get_historical_data` and `get_institutional_holders` tools were selected correctly, with the right ticker ('GOOGL') and the correct period ('1y') for the historical data.",
+    "latency": 1.8039250373840332
+  },
+  {
+    "test_num": 22,
+    "query": "Show me the latest news for Apple and then tell me who its largest institutional holder is.",
+    "category": "multi_step",
+    "num_expected_tools": 2,
+    "num_predicted_tools": 2,
+    "expected_tools": [
+      "get_news",
+      "get_institutional_holders"
+    ],
+    "predicted_tools": [
+      "get_news",
+      "get_institutional_holders"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_institutional_holders\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_institutional_holders\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the two sequential tasks in the query. It selected the correct tools, `get_news` and `get_institutional_holders`, in the correct order, and correctly identified the ticker 'AAPL' for both calls.",
+    "latency": 1.4804058074951172
+  },
+  {
+    "test_num": 23,
+    "query": "How did NVIDIA's stock price react after its most recent earnings report?",
+    "category": "multi_step",
+    "num_expected_tools": 2,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_earnings_history",
+      "get_historical_data"
+    ],
+    "predicted_tools": [
+      "get_earnings_history"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_earnings_history\", \"arguments\": {\"ticker\": \"NVDA\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"NVDA\", \"period\": \"1mo\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_earnings_history\", \"arguments\": {\"ticker\": \"NVDA\"}}\n</tool_call>",
+    "tool_selection_accuracy": 0.5,
+    "sequence_accuracy": 0.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": false,
+    "judge_score": 0.4,
+    "judge_category": "partial",
+    "judge_rationale": "The model correctly identified the first step of the multi-step query, which is to find the date of the most recent earnings report using 'get_earnings_history'. However, it failed to include the second necessary tool call, 'get_historical_data', which is required to analyze the stock price movement after that date.",
+    "latency": 0.8495161533355713
+  },
+  {
+    "test_num": 24,
+    "query": "What is the current price of Home Depot, how has it moved in the last month, and are insiders buying?",
+    "category": "multi_step",
+    "num_expected_tools": 3,
+    "num_predicted_tools": 3,
+    "expected_tools": [
+      "get_current_price",
+      "get_historical_data",
+      "get_insider_trades"
+    ],
+    "predicted_tools": [
+      "get_current_price",
+      "get_historical_data",
+      "get_insider_trades"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_current_price\", \"arguments\": {\"ticker\": \"HD\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"HD\", \"period\": \"1mo\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_insider_trades\", \"arguments\": {\"ticker\": \"HD\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_current_price\", \"arguments\": {\"ticker\": \"HD\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"HD\", \"period\": \"1mo\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_insider_trades\", \"arguments\": {\"ticker\": \"HD\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the three distinct questions in the user's query and called the appropriate tool for each one. It correctly extracted the ticker 'HD' for Home Depot and the '1mo' period for the historical data request, matching the expected output exactly.",
+    "latency": 2.274738073348999
+  },
+  {
+    "test_num": 25,
+    "query": "Compare the P/E ratios of the big tech giants like Apple, Microsoft, and Google.",
+    "category": "domain_specific",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "compare_stocks"
+    ],
+    "predicted_tools": [
+      "compare_stocks"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"compare_stocks\", \"arguments\": {\"tickers\": [\"AAPL\", \"MSFT\", \"GOOGL\"], \"metric\": \"pe_ratio\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"compare_stocks\", \"arguments\": {\"tickers\": [\"AAPL\", \"MSFT\", \"GOOGL\"], \"metric\": \"pe_ratio\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the `compare_stocks` tool. It accurately interpreted the domain-specific request by mapping the company names (Apple, Microsoft, Google) to their correct stock tickers (AAPL, MSFT, GOOGL) and identified the P/E ratio as the metric to be compared. The generated tool call is an exact match to the expected one.",
+    "latency": 1.2984130382537842
+  },
+  {
+    "test_num": 26,
+    "query": "Which has been more volatile recently, TSLA or NVDA?",
+    "category": "domain_specific",
+    "num_expected_tools": 2,
+    "num_predicted_tools": 2,
+    "expected_tools": [
+      "get_historical_data",
+      "get_historical_data"
+    ],
+    "predicted_tools": [
+      "get_volatility",
+      "get_volatility"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"TSLA\", \"period\": \"6mo\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"NVDA\", \"period\": \"6mo\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_volatility\", \"arguments\": {\"ticker\": \"TSLA\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_volatility\", \"arguments\": {\"ticker\": \"NVDA\"}}\n</tool_call>",
+    "tool_selection_accuracy": 0.0,
+    "sequence_accuracy": 0.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": false,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model selected a more direct and domain-appropriate tool (`get_volatility`) than the expected `get_historical_data`. For a query explicitly asking for \"volatility,\" using a tool that directly fetches this metric is a perfect interpretation of the user's intent. The model correctly identified both tickers from the query. While the tool selection differs from the expected one, it represents a more efficient and equally valid (if not superior) path to the same answer, demonstrating a strong understanding of the domain.",
+    "latency": 1.459601879119873
+  },
+  {
+    "test_num": 27,
+    "query": "Which major investment funds are the top institutional holders of Google?",
+    "category": "domain_specific",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_institutional_holders"
+    ],
+    "predicted_tools": [
+      "get_institutional_holders"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_institutional_holders\", \"arguments\": {\"ticker\": \"GOOGL\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_institutional_holders\", \"arguments\": {\"ticker\": \"GOOGL\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the single required tool, `get_institutional_holders`, and accurately inferred the ticker 'GOOGL' for 'Google' as the correct parameter.",
+    "latency": 0.9344773292541504
+  },
+  {
+    "test_num": 28,
+    "query": "Is Johnson & Johnson a reliable income stock for dividend investors?",
+    "category": "domain_specific",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_dividend_history"
+    ],
+    "predicted_tools": [
+      "get_dividend_history"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_dividend_history\", \"arguments\": {\"ticker\": \"JNJ\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_dividend_history\", \"arguments\": {\"ticker\": \"JNJ\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the user's need to assess dividend reliability for a specific stock. It accurately identified the ticker 'JNJ' for Johnson & Johnson and selected the correct tool 'get_dividend_history' with the correct parameters.",
+    "latency": 0.8267514705657959
+  },
+  {
+    "test_num": 29,
+    "query": "Is Microsoft considered overvalued based on its current P/E ratio?",
+    "category": "domain_specific",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_company_profile"
+    ],
+    "predicted_tools": [
+      "get_analyst_recommendations"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"MSFT\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"MSFT\"}}\n</tool_call>",
+    "tool_selection_accuracy": 0.0,
+    "sequence_accuracy": 0.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": false,
+    "judge_score": 0.0,
+    "judge_category": "wrong",
+    "judge_rationale": "The model selected the wrong tool. The user's query specifically asks for an evaluation based on the 'P/E ratio'. The `get_analyst_recommendations` tool provides analyst ratings, not the P/E ratio itself. The correct tool would be `get_company_profile` or a similar key metrics tool to first retrieve the P/E ratio, which is the explicit data point the user is asking about.",
+    "latency": 0.8776254653930664
+  },
+  {
+    "test_num": 30,
+    "query": "What is the current Wall Street consensus on Microsoft's stock?",
+    "category": "domain_specific",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_analyst_recommendations"
+    ],
+    "predicted_tools": [
+      "get_analyst_recommendations"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"MSFT\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_analyst_recommendations\", \"arguments\": {\"ticker\": \"MSFT\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the user's intent to find analyst ratings for a specific company. It correctly mapped the phrase 'Wall Street consensus' to the `get_analyst_recommendations` tool and correctly identified 'Microsoft's stock' to use the ticker 'MSFT' as the required parameter.",
+    "latency": 0.8836872577667236
+  },
+  {
+    "test_num": 31,
+    "query": "What business sector does Home Depot operate in, and what's its market cap?",
+    "category": "domain_specific",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_company_profile"
+    ],
+    "predicted_tools": [
+      "get_company_profile"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"HD\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_company_profile\", \"arguments\": {\"ticker\": \"HD\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the company (Home Depot) and its ticker (HD). It then chose the single, most appropriate tool (`get_company_profile`) to retrieve both the requested pieces of information (business sector and market cap).",
+    "latency": 0.7738008499145508
+  },
+  {
+    "test_num": 32,
+    "query": "Has Amazon consistently beaten earnings estimates over the past few years?",
+    "category": "domain_specific",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_earnings_history"
+    ],
+    "predicted_tools": [
+      "get_earnings_history"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_earnings_history\", \"arguments\": {\"ticker\": \"AMZN\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_earnings_history\", \"arguments\": {\"ticker\": \"AMZN\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the company 'Amazon' and its corresponding ticker 'AMZN'. It also selected the appropriate tool `get_earnings_history` to answer the user's question about historical earnings performance. The model's output exactly matches the expected tool call.",
+    "latency": 0.8611514568328857
+  },
+  {
+    "test_num": 33,
+    "query": "Has Apple shown consistent dividend growth over the last 5 years?",
+    "category": "domain_specific",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_dividend_history"
+    ],
+    "predicted_tools": [
+      "get_dividend_history"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_dividend_history\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_dividend_history\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the required tool (`get_dividend_history`) and correctly interpreted the implicit entity 'Apple' into its corresponding stock ticker 'AAPL', which is the required parameter. The model's output exactly matches the expected tool call.",
+    "latency": 0.8393254280090332
+  },
+  {
+    "test_num": 34,
+    "query": "Which stock is more volatile, TSLA or NVDA, over the last year?",
+    "category": "domain_specific",
+    "num_expected_tools": 2,
+    "num_predicted_tools": 3,
+    "expected_tools": [
+      "get_historical_data",
+      "get_historical_data"
+    ],
+    "predicted_tools": [
+      "get_historical_data",
+      "get_historical_data",
+      "compare_stocks"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"TSLA\", \"period\": \"1y\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"NVDA\", \"period\": \"1y\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"TSLA\", \"period\": \"1y\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"NVDA\", \"period\": \"1y\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"compare_stocks\", \"arguments\": {\"tickers\": [\"TSLA\", \"NVDA\"], \"metric\": \"volatility\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 0.75,
+    "overall_pass": false,
+    "judge_score": 0.4,
+    "judge_category": "partial",
+    "judge_rationale": "The model correctly identifies the need to call `get_historical_data` for both tickers, which matches the expected tool calls. However, it adds a third, unexpected tool call, `compare_stocks`. While this tool is relevant to the user's ultimate goal, it was not part of the expected sequence. The expectation is to fetch the required data first, and the model's addition of a superfluous tool call makes the response only partially correct.",
+    "latency": 2.925978660583496
+  },
+  {
+    "test_num": 35,
+    "query": "How has Google's stock trended over the last business quarter?",
+    "category": "domain_specific",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_historical_data"
+    ],
+    "predicted_tools": [
+      "get_historical_data"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"GOOGL\", \"period\": \"3mo\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"GOOGL\", \"period\": \"3mo\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model correctly identified the `get_historical_data` tool. It also correctly interpreted the domain-specific terms 'Google's stock' into the ticker 'GOOGL' and 'last business quarter' into the period '3mo', matching the expected tool call exactly.",
+    "latency": 1.0555081367492676
+  },
+  {
+    "test_num": 36,
+    "query": "How has Nvidia's stock performed since the AI boom really took off?",
+    "category": "domain_specific",
+    "num_expected_tools": 1,
+    "num_predicted_tools": 1,
+    "expected_tools": [
+      "get_historical_data"
+    ],
+    "predicted_tools": [
+      "get_historical_data"
+    ],
+    "expected_raw": "<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"NVDA\", \"period\": \"2y\"}}\n</tool_call>",
+    "predicted_raw": "<tool_call>\n{\"name\": \"get_historical_data\", \"arguments\": {\"ticker\": \"NVDA\", \"period\": \"2y\"}}\n</tool_call>",
+    "tool_selection_accuracy": 1.0,
+    "sequence_accuracy": 1.0,
+    "parameter_accuracy": 1.0,
+    "overall_pass": true,
+    "judge_score": 1.0,
+    "judge_category": "perfect",
+    "judge_rationale": "The model's tool call is identical to the expected one. It correctly identified the ticker 'NVDA' and correctly interpreted the domain-specific, implicit time-frame 'since the AI boom really took off' as a '2y' period, which is a very reasonable and common interpretation.",
+    "latency": 1.0364911556243896
+  }
+]

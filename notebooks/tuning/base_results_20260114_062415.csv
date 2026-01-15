@@ -1,0 +1,101 @@
+test_num,query,tool,expected,predicted,pred_tool_name,pred_ticker,pred_period,pred_arguments,parse_success,parse_method,tool_match,ticker_match,period_match,overall_match,judge_score,judge_category,judge_rationale,latency
+1,What is Apple's current stock price?,get_current_price,"<tool_call>
+{""name"": ""get_current_price"", ""arguments"": {""ticker"": ""AAPL""}}
+</tool_call>","<tool_call>
+{""name"": ""get_current_price"", ""arguments"": {""ticker"": ""AAPL""}}
+</tool_call>",get_current_price,AAPL,,"{""ticker"": ""AAPL""}",True,native_tool_call,True,True,,True,1.0,perfect,The model correctly identified the company (Apple) and its ticker (AAPL) and selected the correct tool (get_current_price). The generated tool call is an exact match to the expected one.,1.9744071960449219
+2,Show me Tesla's price right now,get_current_price,"<tool_call>
+{""name"": ""get_current_price"", ""arguments"": {""ticker"": ""TSLA""}}
+</tool_call>","<tool_call>
+{""name"": ""get_current_price"", ""arguments"": {""ticker"": ""TSLA""}}
+</tool_call>",get_current_price,TSLA,,"{""ticker"": ""TSLA""}",True,native_tool_call,True,True,,True,1.0,perfect,The model's tool call is an exact match to the expected tool call. It correctly identifies the tool 'get_current_price' and the ticker 'TSLA' for Tesla.,0.6906306743621826
+3,How much is Microsoft stock trading at?,get_current_price,"<tool_call>
+{""name"": ""get_current_price"", ""arguments"": {""ticker"": ""MSFT""}}
+</tool_call>","<tool_call>
+{""name"": ""get_current_price"", ""arguments"": {""ticker"": ""MSFT""}}
+</tool_call>",get_current_price,MSFT,,"{""ticker"": ""MSFT""}",True,native_tool_call,True,True,,True,1.0,perfect,"The model selected the correct tool `get_current_price` and correctly identified the ticker for Microsoft as `MSFT`, exactly matching the expected output.",0.6442790031433105
+4,Get the current price of NVIDIA,get_current_price,"<tool_call>
+{""name"": ""get_current_price"", ""arguments"": {""ticker"": ""NVDA""}}
+</tool_call>","<tool_call>
+{""name"": ""get_current_price"", ""arguments"": {""ticker"": ""NVDA""}}
+</tool_call>",get_current_price,NVDA,,"{""ticker"": ""NVDA""}",True,native_tool_call,True,True,,True,1.0,perfect,The model's tool call is an exact match to the expected output. It correctly identified the `get_current_price` tool and the ticker 'NVDA' for NVIDIA.,0.6431145668029785
+5,What's Amazon trading at today?,get_current_price,"<tool_call>
+{""name"": ""get_current_price"", ""arguments"": {""ticker"": ""AMZN""}}
+</tool_call>","<tool_call>
+{""name"": ""get_current_price"", ""arguments"": {""ticker"": ""AMZN""}}
+</tool_call>",get_current_price,AMZN,,"{""ticker"": ""AMZN""}",True,native_tool_call,True,True,,True,1.0,perfect,The model's tool call is an exact match to the expected tool call. It correctly identifies the `get_current_price` tool and the correct ticker 'AMZN' for Amazon.,0.6339874267578125
+6,Tell me about Google's company profile,get_company_profile,"<tool_call>
+{""name"": ""get_company_profile"", ""arguments"": {""ticker"": ""GOOGL""}}
+</tool_call>","<tool_call>
+{""name"": ""get_company_profile"", ""arguments"": {""ticker"": ""GOOGL""}}
+</tool_call>",get_company_profile,GOOGL,,"{""ticker"": ""GOOGL""}",True,native_tool_call,True,True,,True,1.0,perfect,"The model's tool call is an exact match to the expected tool call, correctly identifying the tool name and the ticker for Google.",0.6768994331359863
+7,What sector is Meta in?,get_company_profile,"<tool_call>
+{""name"": ""get_company_profile"", ""arguments"": {""ticker"": ""META""}}
+</tool_call>","<tool_call>
+{""name"": ""get_company_profile"", ""arguments"": {""ticker"": ""META""}}
+</tool_call>",get_company_profile,META,,"{""ticker"": ""META""}",True,native_tool_call,True,True,,True,1.0,perfect,"The model correctly identified the company (Meta), its ticker (META), and selected the appropriate tool (get_company_profile) to answer the user's question. The tool call is an exact match to the expected output.",0.6291849613189697
+8,Show me the business summary for JPMorgan,get_company_profile,"<tool_call>
+{""name"": ""get_company_profile"", ""arguments"": {""ticker"": ""JPM""}}
+</tool_call>","<tool_call>
+{""name"": ""get_company_profile"", ""arguments"": {""ticker"": ""JPM""}}
+</tool_call>",get_company_profile,JPM,,"{""ticker"": ""JPM""}",True,native_tool_call,True,True,,True,1.0,perfect,"The model's tool call is an exact match to the expected output, correctly identifying the tool `get_company_profile` and the ticker `JPM` for JPMorgan.",0.6552670001983643
+9,Get the company profile for Intel,get_company_profile,"<tool_call>
+{""name"": ""get_company_profile"", ""arguments"": {""ticker"": ""INTC""}}
+</tool_call>","<tool_call>
+{""name"": ""get_company_profile"", ""arguments"": {""ticker"": ""INTC""}}
+</tool_call>",get_company_profile,INTC,,"{""ticker"": ""INTC""}",True,native_tool_call,True,True,,True,1.0,perfect,The model selected the correct tool ('get_company_profile') and correctly identified the ticker for Intel ('INTC'). The output is an exact match to the expected tool call.,0.6485321521759033
+10,What is Walmart's company information?,get_company_profile,"<tool_call>
+{""name"": ""get_company_profile"", ""arguments"": {""ticker"": ""WMT""}}
+</tool_call>","<tool_call>
+{""name"": ""get_company_profile"", ""arguments"": {""ticker"": ""WMT""}}
+</tool_call>",get_company_profile,WMT,,"{""ticker"": ""WMT""}",True,native_tool_call,True,True,,True,1.0,perfect,The model's output is an exact match to the expected tool call. It correctly identified the tool 'get_company_profile' and the ticker 'WMT' for Walmart.,0.6524128913879395
+11,How has Apple performed over the last year?,get_historical_data,"<tool_call>
+{""name"": ""get_historical_data"", ""arguments"": {""ticker"": ""AAPL"", ""period"": ""1y""}}
+</tool_call>","<tool_call>
+{""name"": ""get_historical_data"", ""arguments"": {""ticker"": ""AAPL"", ""period"": ""1y""}}
+</tool_call>",get_historical_data,AAPL,1y,"{""ticker"": ""AAPL"", ""period"": ""1y""}",True,native_tool_call,True,True,True,True,1.0,perfect,"The model's output is an exact match to the expected tool call. It correctly identifies the tool `get_historical_data`, the ticker 'AAPL' for Apple, and the period '1y' for 'the last year'.",0.8439993858337402
+12,Show me Microsoft's stock history for the past 6 months,get_historical_data,"<tool_call>
+{""name"": ""get_historical_data"", ""arguments"": {""ticker"": ""MSFT"", ""period"": ""6mo""}}
+</tool_call>","<tool_call>
+{""name"": ""get_historical_data"", ""arguments"": {""ticker"": ""MSFT"", ""period"": ""6mo""}}
+</tool_call>",get_historical_data,MSFT,6mo,"{""ticker"": ""MSFT"", ""period"": ""6mo""}",True,native_tool_call,True,True,True,True,1.0,perfect,"The model's tool call is an exact match to the expected output, correctly identifying the tool, the ticker for Microsoft (MSFT), and the 6-month period (6mo).",0.8582782745361328
+13,Get Tesla's price data for the last month,get_historical_data,"<tool_call>
+{""name"": ""get_historical_data"", ""arguments"": {""ticker"": ""TSLA"", ""period"": ""1mo""}}
+</tool_call>","<tool_call>
+{""name"": ""get_historical_data"", ""arguments"": {""ticker"": ""TSLA"", ""period"": ""1mo""}}
+</tool_call>",get_historical_data,TSLA,1mo,"{""ticker"": ""TSLA"", ""period"": ""1mo""}",True,native_tool_call,True,True,True,True,1.0,perfect,"The model's tool call is an exact match to the expected output. It correctly identifies the tool name ('get_historical_data'), the ticker ('TSLA'), and the period ('1mo').",0.879725456237793
+14,What's NVIDIA's performance this quarter?,get_historical_data,"<tool_call>
+{""name"": ""get_historical_data"", ""arguments"": {""ticker"": ""NVDA"", ""period"": ""3mo""}}
+</tool_call>","<tool_call>
+{""name"": ""get_historical_data"", ""arguments"": {""ticker"": ""NVDA"", ""period"": ""3mo""}}
+</tool_call>",get_historical_data,NVDA,3mo,"{""ticker"": ""NVDA"", ""period"": ""3mo""}",True,native_tool_call,True,True,True,True,1.0,perfect,"The model's tool call is an exact match to the expected call. It correctly identified the tool ('get_historical_data'), the ticker for NVIDIA ('NVDA'), and correctly interpreted 'this quarter' as a 3-month period ('3mo').",0.8254005908966064
+15,Give me Amazon's 5-year stock history,get_historical_data,"<tool_call>
+{""name"": ""get_historical_data"", ""arguments"": {""ticker"": ""AMZN"", ""period"": ""5y""}}
+</tool_call>","<tool_call>
+{""name"": ""get_historical_data"", ""arguments"": {""ticker"": ""AMZN"", ""period"": ""5y""}}
+</tool_call>",get_historical_data,AMZN,5y,"{""ticker"": ""AMZN"", ""period"": ""5y""}",True,native_tool_call,True,True,True,True,1.0,perfect,"The model's tool call is an exact match to the expected output, correctly identifying the tool, ticker, and period.",0.8449420928955078
+16,What do analysts think about Apple?,get_analyst_recommendations,"<tool_call>
+{""name"": ""get_analyst_recommendations"", ""arguments"": {""ticker"": ""AAPL""}}
+</tool_call>","<tool_call>
+{""name"": ""get_analyst_recommendations"", ""arguments"": {""ticker"": ""AAPL""}}
+</tool_call>",get_analyst_recommendations,AAPL,,"{""ticker"": ""AAPL""}",True,native_tool_call,True,True,,True,1.0,perfect,"The model correctly identified the user's intent to get analyst opinions, chose the right tool `get_analyst_recommendations`, and correctly identified the ticker for Apple as 'AAPL'. The output is an exact match to the expected tool call.",0.7224805355072021
+17,Show me analyst ratings for Tesla,get_analyst_recommendations,"<tool_call>
+{""name"": ""get_analyst_recommendations"", ""arguments"": {""ticker"": ""TSLA""}}
+</tool_call>","<tool_call>
+{""name"": ""get_analyst_recommendations"", ""arguments"": {""ticker"": ""TSLA""}}
+</tool_call>",get_analyst_recommendations,TSLA,,"{""ticker"": ""TSLA""}",True,native_tool_call,True,True,,True,1.0,perfect,"The model's tool call is an exact match to the expected output, correctly identifying the tool name ('get_analyst_recommendations') and the ticker for Tesla ('TSLA').",0.7473499774932861
+18,Get the recommendations for Microsoft stock,get_analyst_recommendations,"<tool_call>
+{""name"": ""get_analyst_recommendations"", ""arguments"": {""ticker"": ""MSFT""}}
+</tool_call>","<tool_call>
+{""name"": ""get_analyst_recommendations"", ""arguments"": {""ticker"": ""MSFT""}}
+</tool_call>",get_analyst_recommendations,MSFT,,"{""ticker"": ""MSFT""}",True,native_tool_call,True,True,,True,1.0,perfect,"The model correctly identified the user's intent to get analyst recommendations and correctly mapped 'Microsoft stock' to the ticker 'MSFT', resulting in an exact match with the expected tool call.",0.7210092544555664
+19,What are analysts saying about Google?,get_analyst_recommendations,"<tool_call>
+{""name"": ""get_analyst_recommendations"", ""arguments"": {""ticker"": ""GOOGL""}}
+</tool_call>","<tool_call>
+{""name"": ""get_analyst_recommendations"", ""arguments"": {""ticker"": ""GOOGL""}}
+</tool_call>",get_analyst_recommendations,GOOGL,,"{""ticker"": ""GOOGL""}",True,native_tool_call,True,True,,True,1.0,perfect,The model selected the correct tool ('get_analyst_recommendations') and correctly identified the ticker for Google ('GOOGL'). The output is an exact match to the expected tool call.,0.7377500534057617
+20,Show me the analyst grades for Netflix,get_analyst_recommendations,"<tool_call>
+{""name"": ""get_analyst_recommendations"", ""arguments"": {""ticker"": ""NFLX""}}
+</tool_call>","<tool_call>
+{""name"": ""get_analyst_recommendations"", ""arguments"": {""ticker"": ""NFLX""}}
+</tool_call>",get_analyst_recommendations,NFLX,,"{""ticker"": ""NFLX""}",True,native_tool_call,True,True,,True,1.0,perfect,"The model's tool call is an exact match to the expected tool call, correctly identifying the function `get_analyst_recommendations` and the ticker 'NFLX' for Netflix.",0.7189583778381348
