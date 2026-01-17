@@ -38,7 +38,9 @@ dependencies = [
     "kaggle>=1.7.4.5",
     "langchain>=0.3.27",
     "langchain-experimental>=0.3.4",
+    "langchain-google-genai>=4.2.0",
     "langchain-ollama>=0.3.10",
+    "langchain-openai>=1.1.7",
     "langgraph>=0.6.11",
     "litellm>=1.80.7",
     "matplotlib>=3.9.4",
@@ -60,6 +62,7 @@ dependencies = [
     "triton>=3.5.1",
     "trl>=0.12.2",
     "unsloth>=2024.8",
+    "yfinance>=1.0",
 ]
 
 [project.optional-dependencies]
